@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+    <div class="dropdown">
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content"></div>
+        {% for k, v in app_name_dict.items() %}
+            <a href="#">{{k}} - {{v}}</a>
+        {% endfor %}
+        </div>
+</div>
+</body>
+
+<!-- <table class="centered thick-border">
+	<tr>
+		<th>First name</th>
+		<th>Age</th>
+	</tr>
+	{% for k, v in app_name_dict.items() %}
+		<tr>
+			<td>{{ k }}</td>
+			<td>{{ v }}</td>
+		</tr>		
+	{% endfor %}
+</table> -->
+
+</html>
