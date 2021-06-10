@@ -3,6 +3,10 @@ import re
 from collections import OrderedDict
 from datetime import datetime
 
+app_id_event_count_dict  = {}
+app_id_app_name_dict = {}
+
+
 def a():
     myclient = pymongo.MongoClient("mongodb://localhost:27017", username="", password="")
     raw_events_db = myclient["raw_events_db"]
@@ -11,7 +15,7 @@ def a():
     applications_collection= applications_db['applications']
 
     applications_documents = applications_collection.find({},projection = {"_id":1,"name":1}).sort("name")
-    app_id_app_name_dict = {}
+    global app_id_app_name_dict
     for x in applications_documents:
         app_id = x['_id'].strip()
         app_name = x['name'].strip()
@@ -22,7 +26,7 @@ def a():
     #Get events per application
     pipeline= [{"$group": {"_id": "$application_id", "count": {"$sum": 1}}}]
     app_id_event_count_doc = events_collection.aggregate(pipeline)
-    app_id_event_count_dict  = {}
+    global app_id_event_count_dict
 
     total_count = 0
     for x in app_id_event_count_doc:
@@ -43,18 +47,18 @@ def a():
 
 
 
-def b():
-    start_time = datetime.now()
+def b(): # take app id input then show control
+    # start_time = datetime.now()
 
     for app_id in app_id_event_count_dict:
         #app_id = "510f81328779ba7557153d96d6a09ac2"
         # if app_id != "541cc79a8638cfd34bdc56d1a27c8cd7":
             # continue
-        print("--------------------------------")
-        print(app_id_app_name_dict[app_id])
+        # print("--------------------------------")
+        # print(app_id_app_name_dict[app_id])
         
         app_id_title_docs = events_collection.find({"application_id": app_id}, projection={'title':1, 'specifications.event_path':1})
-        print("\t #Documents: ",app_id_title_docs.count())
+        # print("\t #Documents: ",app_id_title_docs.count())
 
         title_set = set({})
         event_path_set = set({})
@@ -62,24 +66,22 @@ def b():
             title_set.add(x['title'])
             event_path_set.add(x['specifications']['event_path'])
 
-        end_time = datetime.now()
-        # print("3")
+        # end_time = datetime.now()
         f = open("C:\\Users\\cnaag\\Downloads\\Schneider\\"+app_id_app_name_dict[app_id].replace(":","_").replace("-","_")+"_title.txt",'w', encoding="utf-8")
         for title in title_set:
             f.write(title)
             f.write("\n")
         f.close()
-        # print("1")
+        
         f = open("C:\\Users\\cnaag\\Downloads\\Schneider\\"+app_id_app_name_dict[app_id].replace(":","_").replace("-","_")+"_event_path.txt",'w', encoding="utf-8")
-        # print("2")
         for event_path in event_path_set:
             f.write(event_path)
             f.write("\n")
         f.close()
 
-        print("\t #Titles: ",len(title_set))
-        print("\t #Event Paths: ",len(event_path_set))
-        print("\t Took ",(end_time-start_time).total_seconds()," secs.")
+        # print("\t #Titles: ",len(title_set))
+        # print("\t #Event Paths: ",len(event_path_set))
+        # print("\t Took ",(end_time-start_time).total_seconds()," secs.")
 
 
     input_dir = "C:\\Users\\cnaag\\Downloads\\Schneider\\"
