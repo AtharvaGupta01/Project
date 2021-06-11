@@ -1,3 +1,4 @@
+import json
 from flask import Flask, jsonify, request
 from flask_restful import Resource, Api
 #from flask_pymongo import PyMongo
@@ -22,8 +23,13 @@ api = Api(app)
 class Get_Id(Resource):
     def get(self):
         app_name_dict = a()
+        with open("showapplications.json", "w") as outfile: 
+            json.dump(app_name_dict, outfile, indent=4)
+
+        str_randd= "Done"
         # return render_template("base.html", app_name_dict = app_name_dict)
-        return {'data': app_name_dict}
+        # return app_name_dict
+        return str_randd
 
     # def post(self):
         # take input of which application name is needed
