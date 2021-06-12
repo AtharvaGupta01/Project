@@ -5,7 +5,7 @@ from datetime import datetime
 
 app_id_event_count_dict  = {}
 app_id_app_name_dict = {}
-
+app_id_app_name_list = []
 
 def a():
     myclient = pymongo.MongoClient("mongodb://localhost:27017", username="", password="")
@@ -16,10 +16,14 @@ def a():
 
     applications_documents = applications_collection.find({},projection = {"_id":1,"name":1}).sort("name")
     global app_id_app_name_dict
+    global app_id_app_name_list
+    temp_app_id_name_dict = {}
     for x in applications_documents:
         app_id = x['_id'].strip()
         app_name = x['name'].strip()
         app_id_app_name_dict[app_id] = app_name
+        temp_app_id_name_dict = {"app_id": app_id, "app_name": app_name}
+        app_id_app_name_list.append(temp_app_id_name_dict)
     # print("# Applications: ",len(app_id_app_name_dict))
 
 
@@ -41,7 +45,7 @@ def a():
 
     # print("Total Event Count: ",total_count)
 
-    return app_id_app_name_dict
+    return app_id_app_name_list
 
 
 
