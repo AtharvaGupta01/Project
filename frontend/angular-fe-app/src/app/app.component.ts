@@ -9,15 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   // title = 'First Attempt';
-  keys = Object.keys({a:1,b:2,c:3})
+  keys = Object.values({a:1,b:2,c:3})
   async fetchData(){
     var url = 'http://localhost:5000/'
     // var url = 'https://api.chucknorris.io/jokes/random'
     var response = await fetch(url)
     response = await response.json()
     console.log(typeof(response), response)
-    // response = await response
-    this.keys = Object.keys(response)
+    this.keys = Object.values(response)
   }
 
 
