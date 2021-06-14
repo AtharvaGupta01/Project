@@ -22,15 +22,17 @@ api = Api(app)
 
 class Get_Id(Resource):
     def get(self):
-        # app_name_dict = a()
-        app_name_list = a()
-        with open("showapplications.json", "w") as outfile: 
-            json.dump(app_name_list, outfile, indent=4)
+        app_name_dict = a()
+        # app_name_list = a()
+        # with open("showapplications.json", "w") as outfile: 
+        #     json.dump(app_name_list, outfile, indent=4)
         # app_json = json.dumps(app_name_dict)
         # str_randd= "Done"
         # return render_template("base.html", app_name_dict = app_name_dict)
-        # return app_name_dict
-        return app_name_list
+        # y = json.dump(app_name_dict).decode(str_w_quotes)
+        # return json.loads(json.dumps(app_name_dict))
+        return app_name_dict
+        # return app_name_list
 
     # def post(self):
         # take input of which application name is needed

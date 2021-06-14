@@ -19,7 +19,8 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "resolveJsonModule": true // added to add JSON func
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

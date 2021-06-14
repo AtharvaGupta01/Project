@@ -1,23 +1,30 @@
-import { Component } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import { OnInit } from '@angular/core';
-import showapplications from 'C:\\Users\\cnaag\\Desktop\\Project\\showapplications.json';
+import { Component, OnInit } from '@angular/core';
+//import {HttpClient} from '@angular/common/http';
+//import showapplications from 'C:\\Users\\cnaag\\Desktop\\Project\\showapplications.json';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'First Attempt';
+export class AppComponent implements OnInit {
+  // title = 'First Attempt';
+  keys = Object.keys({a:1,b:2,c:3})
+  async fetchData(){
+    var url = 'http://localhost:5000/'
+    // var url = 'https://api.chucknorris.io/jokes/random'
+    var response = await fetch(url)
+    response = await response.json()
+    console.log(typeof(response), response)
+    // response = await response
+    this.keys = Object.keys(response)
+  }
 
-  public myapplist:{app_id:string, app_name:string}[] = showapplications;
-  // url = 'http://127.0.0.1:5000/'
 
-  // fetch(url)
-  //   .then(response => response.json())
-  //   .then(data => console.log(data));
-
+  ngOnInit(){
+    this.fetchData()
+  }
+  //public myapplist:{app_id:string, app_name:string}[] = showapplications;
 
   // showapplicationList = JSON.parse(showapplications);
   // keys = Object.keys(showapplicationList);

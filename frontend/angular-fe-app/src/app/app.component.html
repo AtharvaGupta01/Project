@@ -1,9 +1,9 @@
-<h1>{{title}}</h1>
+<!-- <h1>{{title}}</h1> -->
 
 <div style="text-align:center">
-  <h2>
+  <!-- <h2>
       application list from local json file...
-  </h2>
+  </h2> -->
   <!-- <ul *ngFor="let item of myapplist">
     <li>
        <h3>ID :{{item.app_id}}, Name: {{item.app_name}}</h3>
@@ -11,8 +11,8 @@
  </ul> -->
 
  <select >
-  <option *ngFor = "let item of myapplist">
-    {{item.app_id}} - {{item.app_name}}
+  <option *ngFor = "let item of keys">
+    {{ item }}
   </option>
 </select>
 </div>

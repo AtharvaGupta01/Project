@@ -45,7 +45,9 @@ def a():
 
     # print("Total Event Count: ",total_count)
 
-    return app_id_app_name_list
+    # return app_id_app_name_list
+    return app_id_app_name_dict
+
 
 
 
