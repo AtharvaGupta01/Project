@@ -3,7 +3,7 @@ from flask import Flask, jsonify, request
 from flask_restful import Resource, Api
 from flask_cors import CORS, cross_origin
 #from flask_pymongo import PyMongo
-from thisisatest import a
+from thisisatest import show_app_names
 import pymongo
 import re
 from collections import OrderedDict
@@ -24,7 +24,7 @@ cors = CORS(app)
 
 class Get_Id(Resource):
     def get(self):
-        app_name_dict = a()
+        app_name_dict = show_app_names()
         # app_name_list = a()
         # with open("showapplications.json", "w") as outfile: 
         #     json.dump(app_name_list, outfile, indent=4)

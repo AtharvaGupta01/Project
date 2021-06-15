@@ -7,7 +7,7 @@ app_id_event_count_dict  = {}
 app_id_app_name_dict = {}
 app_id_app_name_list = []
 
-def a():
+def show_app_names():
     myclient = pymongo.MongoClient("mongodb://localhost:27017", username="", password="")
     raw_events_db = myclient["raw_events_db"]
     events_collection = raw_events_db["events"]
