@@ -40,14 +40,14 @@ import {map, startWith} from 'rxjs/operators';
 export class AppComponent implements OnInit {
   my_values = Object.values({a:1,b:2,c:3})
   myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
+  options = ['One', 'Two', 'Three'];
   filteredOptions: Observable<string[]>;
 
   async fetchData(){
     var url = 'http://localhost:5000/'
     var response = await fetch(url)
     response = await response.json()
-    this.my_values = Object.values(response)
+    this.options = Object.values(response)
     console.log(typeof(this.my_values), this.my_values)
     // var keys = [];
     // for (var nu in this.my_values) {
