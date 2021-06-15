@@ -1,18 +1,27 @@
 <!-- <h1>{{title}}</h1> -->
 
-<div style="text-align:center">
-  <!-- <h2>
-      application list from local json file...
-  </h2> -->
-  <!-- <ul *ngFor="let item of myapplist">
-    <li>
-       <h3>ID :{{item.app_id}}, Name: {{item.app_name}}</h3>
-    </li>
- </ul> -->
-
+<!-- <div style="text-align:center">
  <select >
   <option *ngFor = "let item of keys">
     {{ item }}
   </option>
 </select>
-</div>
+</div> -->
+
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Application Name</mat-label>
+    <input type="text"
+           placeholder="Start typing..."
+           aria-label="Number"
+           matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
