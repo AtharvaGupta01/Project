@@ -40,15 +40,15 @@ import {map, startWith} from 'rxjs/operators';
 export class AppComponent implements OnInit {
   my_values = Object.values({a:1,b:2,c:3})
   myControl = new FormControl();
-  options: Object[] = ['One', 'Two', 'Three'];
-  filteredOptions: Observable<Object[]>;
+  options: string[] = ['One', 'Two', 'Three'];
+  filteredOptions: Observable<string[]>;
 
   async fetchData(){
     var url = 'http://localhost:5000/'
     var response = await fetch(url)
     response = await response.json()
     this.my_values = Object.values(response)
-    console.log(this.my_values)
+    console.log(typeof(this.my_values), this.my_values)
     // var keys = [];
     // for (var nu in this.my_values) {
     //   if (nu.hasOwnProperty(nu)) {
@@ -61,17 +61,18 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.fetchData()
-    this.options = this.my_values
+    //this.options = this.my_values
     this.filteredOptions = this.myControl.valueChanges
       .pipe(
         startWith(''),
         map(value => this._filter(value))
       );
+
   }
 
-  private _filter(value: string): Object[] {
-    const filterValue = value.toString().toLowerCase();
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
 
-    return this.options.filter(option => option.toString().toLowerCase().includes(filterValue));
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 }
