@@ -12,11 +12,10 @@
 
 table {
   margin-left: 10px;
-  width: 80%;
+  width: 20%;
 }
 
 th.mat-sort-header-sorted {
-  margin-left: 10px;
   color: black;
 }
 
