@@ -3,7 +3,7 @@ from flask import Flask, jsonify, request
 from flask_restful import Resource, Api
 from flask_cors import CORS, cross_origin
 #from flask_pymongo import PyMongo
-from thisisatest import show_app_names
+from thisisatest import application_name_dropdown, application_name_table, control_name_table, automation_id_table, data_type_dropdown
 import pymongo
 import re
 from collections import OrderedDict
@@ -24,7 +24,7 @@ cors = CORS(app)
 
 class Get_Id(Resource):
     def get(self):
-        app_name_dict = show_app_names()
+        app_name_dict = application_name_dropdown()
         # app_name_list = a()
         # with open("showapplications.json", "w") as outfile: 
         #     json.dump(app_name_list, outfile, indent=4)
@@ -36,9 +36,10 @@ class Get_Id(Resource):
         return app_name_dict
         # return app_name_list
 
-    # def post(self):
-        # take input of which application name is needed
-        # 
+    def post(self):
+        # application_name_selection = 'lplecm.crm.dynamics.com'
+        control_name_table_list = application_name_table(application_name_selection) 
+        return control_name_table_list
 
 
 # class Control_type_table():

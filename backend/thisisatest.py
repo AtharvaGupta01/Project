@@ -7,16 +7,31 @@ app_id_event_count_dict  = {}
 app_id_app_name_dict = {}
 app_id_app_name_list = []
 
-def show_app_names():
-    myclient = pymongo.MongoClient("mongodb://localhost:27017", username="", password="")
-    raw_events_db = myclient["raw_events_db"]
-    events_collection = raw_events_db["events"]
-    applications_db = myclient['applications_db']
-    applications_collection= applications_db['applications']
+myclient = pymongo.MongoClient("mongodb://localhost:27017", username="", password="")
+raw_events_db = myclient["raw_events_db"]
+events_collection = raw_events_db["events"]
+applications_db = myclient['applications_db']
+applications_collection= applications_db['applications']
 
-    applications_documents = applications_collection.find({},projection = {"_id":1,"name":1}).sort("name")
+my_control_type_array = []
+automation_id_count_dict = {}
+control_type_control_name_set_dict = {}
+control_type_automation_id_set_dict = {}
+control_type_automation_id_count_dict = {}
+
+def application_name_dropdown():
+
+    global myclient
+    global raw_events_db
+    global events_collection
+    global applications_db
+    global applications_collection
+   
     global app_id_app_name_dict
     global app_id_app_name_list
+    global app_id_event_count_dict
+
+    applications_documents = applications_collection.find({},projection = {"_id":1,"name":1}).sort("name")
     temp_app_id_name_dict = {}
     for x in applications_documents:
         app_id = x['_id'].strip()
@@ -30,7 +45,7 @@ def show_app_names():
     #Get events per application
     pipeline= [{"$group": {"_id": "$application_id", "count": {"$sum": 1}}}]
     app_id_event_count_doc = events_collection.aggregate(pipeline)
-    global app_id_event_count_dict
+    
 
     total_count = 0
     for x in app_id_event_count_doc:
@@ -51,10 +66,15 @@ def show_app_names():
 
 
 
-
-
-def b(): # take app id input then show control
+def application_name_table(application_name_selection): # take app id input then show control
     # start_time = datetime.now()
+    #
+    # # application name is to be application_name_selected
+    #
+    application_name = application_name_selection.replace("-","_")
+    
+    global automation_id_count_dict
+    global my_control_type_array
 
     for app_id in app_id_event_count_dict:
         #app_id = "510f81328779ba7557153d96d6a09ac2"
@@ -91,12 +111,12 @@ def b(): # take app id input then show control
 
 
     input_dir = "C:\\Users\\cnaag\\Downloads\\Schneider\\"
-    application_name = 'lplecm.crm.dynamics.com'.replace("-","_")
+    # application_name = 'lplecm.crm.dynamics.com'.replace("-","_")
 
 
-    control_type_control_name_set_dict = {}
-    control_type_automation_id_set_dict = {}
-    control_type_automation_id_count_dict = {}
+    global control_type_control_name_set_dict
+    global control_type_automation_id_set_dict
+    global control_type_automation_id_count_dict
 
     f = open(input_dir + application_name+"_event_path.txt",'r', encoding='utf-8')
     lines = f.readlines()
@@ -152,25 +172,39 @@ def b(): # take app id input then show control
         control_type_automation_id_count_dict[control_type] = automation_id_count
         
     for control_type in control_type_control_name_count_dict:
-        print(control_type, control_type_control_name_count_dict[control_type])
+        # print(control_type, control_type_control_name_count_dict[control_type])
+        my_control_type_array.append({'control_type': control_type, 'distinct_values': control_type_control_name_count_dict[control_type]})
+
+    return my_control_type_array
 
 
-    for control_name in sorted(control_type_control_name_set_dict['50026']):
+# def control_type_dropdown():
+#     global my_control_type_array
+
+def data_type_dropdown():
+    dropdown_options = ['Control Name', 'Automation ID']
+    return dropdown_options
+
+def control_name_table(control_type_selected):
+    global control_type_control_name_set_dict
+    for control_name in sorted(control_type_control_name_set_dict[control_type_selected]):
         #if "Realize Your Potential" in control_name:
             print(control_name)
 
-
-    automation_id_count_dict = control_type_automation_id_count_dict['50026']
+def automation_id_table(control_type_selected):
+    global automation_id_count_dict
+    global control_type_automation_id_count_dict
+    automation_id_count_dict = control_type_automation_id_count_dict[control_type_selected]
     for automation_id in automation_id_count_dict:
         print(automation_id, automation_id_count_dict[automation_id])
 
 
-    def prune_hashes(sentence):
-        regex = re.compile("#[A-Fa-f0-9]{64,}#", re.IGNORECASE)
-        modified_sentence = sentence
-        matches = re.findall(regex, modified_sentence)
-        for match in matches:
-            modified_sentence = modified_sentence.replace(match, '')
+    # def prune_hashes(sentence):
+    #     regex = re.compile("#[A-Fa-f0-9]{64,}#", re.IGNORECASE)
+    #     modified_sentence = sentence
+    #     matches = re.findall(regex, modified_sentence)
+    #     for match in matches:
+    #         modified_sentence = modified_sentence.replace(match, '')
 
-        return modified_sentence.strip()
+    #     return modified_sentence.strip()
 
