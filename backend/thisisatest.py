@@ -15,6 +15,7 @@ applications_collection= applications_db['applications']
 
 my_control_type_array = []
 automation_id_count_dict = {}
+# temp_application_name = ''
 control_type_control_name_set_dict = {}
 control_type_automation_id_set_dict = {}
 control_type_automation_id_count_dict = {}
@@ -75,6 +76,9 @@ def application_name_table(application_name_selection): # take app id input then
     
     global automation_id_count_dict
     global my_control_type_array
+    # global temp_application_name
+
+    my_control_type_array = []
 
     for app_id in app_id_event_count_dict:
         #app_id = "510f81328779ba7557153d96d6a09ac2"
@@ -112,7 +116,7 @@ def application_name_table(application_name_selection): # take app id input then
 
     input_dir = "C:\\Users\\cnaag\\Downloads\\Schneider\\"
     application_name = application_name_selection.replace("-","_")  
-
+    
 
     global control_type_control_name_set_dict
     global control_type_automation_id_set_dict
@@ -171,11 +175,11 @@ def application_name_table(application_name_selection): # take app id input then
         automation_id_count = OrderedDict(sorted(automation_id_count.items(), key=lambda kv:(kv[1], kv[0]), reverse=True))
         control_type_automation_id_count_dict[control_type] = automation_id_count
 
-    if len(my_control_type_array) == 0:  
-        for control_type in control_type_control_name_count_dict:
-            # print(control_type, control_type_control_name_count_dict[control_type])
-            my_control_type_array.append({'control_type': control_type, 'distinct_values': control_type_control_name_count_dict[control_type]})
-
+    # if len(my_control_type_array) == 0 or temp_application_name != application_name:  
+    # if len(my_control_type_array)==0:
+    for control_type in control_type_control_name_count_dict:
+        my_control_type_array.append({'control_type': control_type, 'distinct_values': control_type_control_name_count_dict[control_type]})
+    # temp_application_name = application_name
     return my_control_type_array
 
 
