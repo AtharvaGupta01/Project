@@ -36,19 +36,23 @@ class Get_Id(Resource):
         return app_name_dict
         # return app_name_list
 
-    def post(self):
+    #def post(self):
         # application_name_selection = 'lplecm.crm.dynamics.com'
-        control_name_table_list = application_name_table(application_name_selection) 
-        return control_name_table_list
+        # control_name_table_list = application_name_table(application_name_selection) 
+        # return control_name_table_list
 
 
-# class Control_type_table():
-#     def get(self):
+class Get_table_data(Resource):
+     def get(self, id):
+        control_name_table_list = application_name_table(id) 
+        return(control_name_table_list)
+        
 
 
 
 
 api.add_resource(Get_Id, '/')
+api.add_resource(Get_table_data, '/<string:id>')
 # api.add_resource(Control_type_table, '/ctt')
 # api.add_resource(Get_control_type, '/gct')
 # api.add_resource(control_name_table, '/cnt')

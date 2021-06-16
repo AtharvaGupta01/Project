@@ -71,7 +71,7 @@ def application_name_table(application_name_selection): # take app id input then
     #
     # # application name is to be application_name_selected
     #
-    application_name = application_name_selection.replace("-","_")
+    
     
     global automation_id_count_dict
     global my_control_type_array
@@ -111,7 +111,7 @@ def application_name_table(application_name_selection): # take app id input then
 
 
     input_dir = "C:\\Users\\cnaag\\Downloads\\Schneider\\"
-    # application_name = 'lplecm.crm.dynamics.com'.replace("-","_")
+    application_name = application_name_selection.replace("-","_")  
 
 
     global control_type_control_name_set_dict
@@ -170,10 +170,11 @@ def application_name_table(application_name_selection): # take app id input then
         automation_id_count = control_type_automation_id_count_dict[control_type]
         automation_id_count = OrderedDict(sorted(automation_id_count.items(), key=lambda kv:(kv[1], kv[0]), reverse=True))
         control_type_automation_id_count_dict[control_type] = automation_id_count
-        
-    for control_type in control_type_control_name_count_dict:
-        # print(control_type, control_type_control_name_count_dict[control_type])
-        my_control_type_array.append({'control_type': control_type, 'distinct_values': control_type_control_name_count_dict[control_type]})
+
+    if len(my_control_type_array) == 0:  
+        for control_type in control_type_control_name_count_dict:
+            # print(control_type, control_type_control_name_count_dict[control_type])
+            my_control_type_array.append({'control_type': control_type, 'distinct_values': control_type_control_name_count_dict[control_type]})
 
     return my_control_type_array
 

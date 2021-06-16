@@ -10,14 +10,13 @@
            [formControl]="myControl"
            [matAutocomplete]="auto">
     <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (onSelectChange)= "getAppNameDropdown(option)">
         {{option}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
 </form>
 
-<!-- on-select for above-->
 
 <br/>
 <br/>
@@ -38,3 +37,24 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+
+<br/>
+<br/>
+
+<form class="example-form2">
+  <mat-form-field class="example-full-width2">
+    <mat-label>Application Name</mat-label>
+    <input type="text"
+           placeholder="Start typing..."
+           aria-label="Number"
+           matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

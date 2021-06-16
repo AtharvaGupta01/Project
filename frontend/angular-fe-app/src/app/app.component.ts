@@ -53,11 +53,11 @@ export class AppComponent implements OnInit {
     this.options = Object.values(response)
   }
 
-  async getAppNameDropdown(){
-
-    // post method to same url
-    // use options in fetchdata // send url and input
-
+  async getAppNameDropdown(id){
+    var url = 'http://localhost:5000/${id}'
+    var response = await fetch(url)
+    response = await response.json()
+    console.log(response)
   }
 
   ngOnInit() {
