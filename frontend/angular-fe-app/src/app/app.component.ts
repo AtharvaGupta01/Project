@@ -13,18 +13,7 @@ import {MatTableDataSource} from '@angular/material/table';
 //   distinct_values: number;
 // }
 
-// const ELEMENT_DATA: PeriodicElement[] = [
-//   { control_type: '10000', distinct_values: 1.0079},
-//   { control_type: '20000', distinct_values: 4.0026},
-//   { control_type: '30000', distinct_values: 6.941},
-//   { control_type: '40000', distinct_values: 9.0122},
-//   { control_type: '50000', distinct_values: 10.811},
-//   { control_type: '60000', distinct_values: 12.0107},
-//   { control_type: '70000', distinct_values: 14.0067},
-//   { control_type: '80000', distinct_values: 15.9994},
-//   { control_type: '90000', distinct_values: 18.9984},
-//   { control_type: '100000', distinct_values: 20.1797}
-// ];
+
 
 /**
  * @title Filter autocomplete
@@ -37,12 +26,25 @@ import {MatTableDataSource} from '@angular/material/table';
 export class AppComponent implements OnInit {
   my_values = Object.values({a:1,b:2,c:3})
   myControl = new FormControl();
-  options = ['One', 'Two', 'Three'];
+  // options = ['One', 'Two', 'Three'];
+  options = []
+  ELEMENT_DATA = [
+    { control_type: '10000', distinct_values: 1.0079},
+    { control_type: '20000', distinct_values: 4.0026},
+    { control_type: '30000', distinct_values: 6.941},
+    { control_type: '40000', distinct_values: 9.0122},
+    { control_type: '50000', distinct_values: 10.811},
+    { control_type: '60000', distinct_values: 12.0107},
+    { control_type: '70000', distinct_values: 14.0067},
+    { control_type: '80000', distinct_values: 15.9994},
+    { control_type: '90000', distinct_values: 18.9984},
+    { control_type: '100000', distinct_values: 20.1797}
+  ];
   filteredOptions: Observable<string[]>;
-  // displayedColumns: string[] = ['control_type', 'distinct_values'];
-  // dataSource = new MatTableDataSource(ELEMENT_DATA);
+  displayedColumns: string[] = ['control_type', 'distinct_values'];
+  dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 
-  // @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort) sort: MatSort;
 
   async fetchData(){
     var url = 'http://localhost:5000/'
@@ -51,6 +53,12 @@ export class AppComponent implements OnInit {
     this.options = Object.values(response)
   }
 
+  async getAppNameDropdown(){
+
+    // post method to same url
+    // use options in fetchdata // send url and input
+
+  }
 
   ngOnInit() {
     this.fetchData()
@@ -62,9 +70,9 @@ export class AppComponent implements OnInit {
 
   }
 
-  // ngAfterViewInit() {
-  //   this.dataSource.sort = this.sort;
-  // }
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+  }
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
