@@ -122,6 +122,9 @@ def application_name_table(application_name_selection): # take app id input then
     global control_type_automation_id_set_dict
     global control_type_automation_id_count_dict
 
+    control_type_control_name_set_dict.clear()
+
+
     f = open(input_dir + application_name+"_event_path.txt",'r', encoding='utf-8')
     lines = f.readlines()
 
@@ -166,6 +169,7 @@ def application_name_table(application_name_selection): # take app id input then
             control_type_automation_id_count_dict[control_type] = automation_id_count_dict
             
     control_type_control_name_count_dict = {}
+    control_type_control_name_count_dict.clear()
     for control_type in control_type_control_name_set_dict:
         control_type_control_name_count_dict[control_type] = len(control_type_control_name_set_dict[control_type])
     control_type_control_name_count_dict = OrderedDict(sorted(control_type_control_name_count_dict.items(), key=lambda kv:(kv[1], kv[0]), reverse=True))
