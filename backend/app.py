@@ -45,7 +45,8 @@ class Get_Id(Resource):
 class Get_table_data(Resource):
      def get(self, id):
         control_name_table_list = application_name_table(id) 
-        return(control_name_table_list)
+        a ={'data':control_name_table_list}
+        return(a)
         
 
 
