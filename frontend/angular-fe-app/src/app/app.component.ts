@@ -58,7 +58,8 @@ export class AppComponent implements OnInit,AfterViewInit {
     var response = await fetch(url)
     response = await response.json()
     console.log(response)
-    this.ELEMENT_DATA = Object.values(response)
+    this.ELEMENT_DATA = response['data']
+    this.dataSource = new MatTableDataSource(this.ELEMENT_DATA)
   }
 
   ngOnInit() {

@@ -2,6 +2,8 @@ import pymongo
 import re
 from collections import OrderedDict
 from datetime import datetime
+import os
+
 
 app_id_event_count_dict  = {}
 app_id_app_name_dict = {}
@@ -80,15 +82,14 @@ def application_name_table(application_name_selection): # take app id input then
 
     my_control_type_array = []
 
+    path = os.path.dirname(__file__)
+
+    rel_dir = '../Schneider//'
+
+
+    
     for app_id in app_id_event_count_dict:
-        #app_id = "510f81328779ba7557153d96d6a09ac2"
-        # if app_id != "541cc79a8638cfd34bdc56d1a27c8cd7":
-            # continue
-        # print("--------------------------------")
-        # print(app_id_app_name_dict[app_id])
-        
         app_id_title_docs = events_collection.find({"application_id": app_id}, projection={'title':1, 'specifications.event_path':1})
-        # print("\t #Documents: ",app_id_title_docs.count())
 
         title_set = set({})
         event_path_set = set({})
@@ -96,25 +97,20 @@ def application_name_table(application_name_selection): # take app id input then
             title_set.add(x['title'])
             event_path_set.add(x['specifications']['event_path'])
 
-        # end_time = datetime.now()
-        f = open("C:\\Users\\cnaag\\Downloads\\Schneider\\"+app_id_app_name_dict[app_id].replace(":","_").replace("-","_")+"_title.txt",'w', encoding="utf-8")
+        f = open("C:\\Users\\cnaag\\Desktop\\Project\\Schneider\\"+app_id_app_name_dict[app_id].replace(":","_").replace("-","_")+"_title.txt",'w', encoding="utf-8")
         for title in title_set:
             f.write(title)
             f.write("\n")
         f.close()
         
-        f = open("C:\\Users\\cnaag\\Downloads\\Schneider\\"+app_id_app_name_dict[app_id].replace(":","_").replace("-","_")+"_event_path.txt",'w', encoding="utf-8")
+        f = open("C:\\Users\\cnaag\\Desktop\\Project\\Schneider\\"+app_id_app_name_dict[app_id].replace(":","_").replace("-","_")+"_event_path.txt",'w', encoding="utf-8")
         for event_path in event_path_set:
             f.write(event_path)
             f.write("\n")
         f.close()
 
-        # print("\t #Titles: ",len(title_set))
-        # print("\t #Event Paths: ",len(event_path_set))
-        # print("\t Took ",(end_time-start_time).total_seconds()," secs.")
 
-
-    input_dir = "C:\\Users\\cnaag\\Downloads\\Schneider\\"
+    input_dir = "C:\\Users\\cnaag\\Desktop\\Project\\Schneider\\"
     application_name = application_name_selection.replace("-","_")  
     
 
@@ -127,13 +123,13 @@ def application_name_table(application_name_selection): # take app id input then
 
     f = open(input_dir + application_name+"_event_path.txt",'r', encoding='utf-8')
     lines = f.readlines()
+    f.close()
 
     for line in lines:
         event_path = line.strip()
         if len(event_path) == 0:
             continue
-        #if 'user' in event_path.lower():
-        #    print(event_path)
+
         event_path_items = event_path.split("\/")
         for event_path_item in event_path_items:
             event_path_item_elements = event_path_item.split("\|")
@@ -179,11 +175,8 @@ def application_name_table(application_name_selection): # take app id input then
         automation_id_count = OrderedDict(sorted(automation_id_count.items(), key=lambda kv:(kv[1], kv[0]), reverse=True))
         control_type_automation_id_count_dict[control_type] = automation_id_count
 
-    # if len(my_control_type_array) == 0 or temp_application_name != application_name:  
-    # if len(my_control_type_array)==0:
     for control_type in control_type_control_name_count_dict:
         my_control_type_array.append({'control_type': control_type, 'distinct_values': control_type_control_name_count_dict[control_type]})
-    # temp_application_name = application_name
     return my_control_type_array
 
 
