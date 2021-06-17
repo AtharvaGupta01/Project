@@ -10,6 +10,17 @@
   width: 100%;
 }
 
+.example-loading-shade {
+  height: 392px;
+  width: 40%;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .example-container {
   margin-left: 20px;
   height: 392px;

@@ -8,6 +8,8 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
 import {MatAutocompleteTrigger} from '@angular/material/autocomplete';
 import {MatPaginator} from '@angular/material/paginator';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 
 export interface PeriodicElement {
@@ -43,6 +45,8 @@ export class AppComponent implements OnInit,AfterViewInit {
   filteredOptions: Observable<string[]>;
   displayedColumns: string[] = ['control_type', 'distinct_values'];
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+  isLoadingResults = false;
+
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -54,6 +58,7 @@ export class AppComponent implements OnInit,AfterViewInit {
   }
 
   async getAppNameDropdown(event ,id){
+    this.isLoadingResults = true;
     var url = `http://localhost:5000/${id}`
     var response = await fetch(url)
     response = await response.json()
@@ -75,6 +80,7 @@ export class AppComponent implements OnInit,AfterViewInit {
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+    this.isLoadingResults = false;
   }
 
   private _filter(value: string): string[] {
