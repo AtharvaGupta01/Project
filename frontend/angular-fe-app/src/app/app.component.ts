@@ -29,7 +29,18 @@ export class AppComponent implements OnInit {
   myControl = new FormControl();
   // options = ['One', 'Two', 'Three'];
   options = []
-  ELEMENT_DATA = [];
+  ELEMENT_DATA = [
+  {control_type:12345, distinct_values: 1},
+  {control_type:12345, distinct_values: 2},
+  {control_type:12345, distinct_values: 3},
+  {control_type:12345, distinct_values: 4},
+  {control_type:12345, distinct_values: 5},
+  {control_type:12345, distinct_values: 6},
+  {control_type:12345, distinct_values: 7},
+  {control_type:12345, distinct_values: 8},
+  {control_type:12345, distinct_values: 9},
+  {control_type:12345, distinct_values: 10},
+  ];
   filteredOptions: Observable<string[]>;
   displayedColumns: string[] = ['control_type', 'distinct_values'];
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
@@ -48,6 +59,7 @@ export class AppComponent implements OnInit {
     var response = await fetch(url)
     response = await response.json()
     console.log(response)
+    this.ELEMENT_DATA = Object.values(response)
   }
 
   ngOnInit() {
