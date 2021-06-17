@@ -10,10 +10,9 @@ import {MatAutocompleteTrigger} from '@angular/material/autocomplete';
 
 
 export interface PeriodicElement {
-  control_type: number;
+  control_type: string;
   distinct_values: number;
 }
-
 
 
 /**
@@ -29,16 +28,16 @@ export class AppComponent implements OnInit,AfterViewInit {
   myControl = new FormControl();
   options = []
   ELEMENT_DATA: PeriodicElement[] = [
-  {control_type:1, distinct_values: 1},
-  {control_type:2, distinct_values: 2},
-  {control_type:3, distinct_values: 3},
-  {control_type:4, distinct_values: 4},
-  {control_type:5, distinct_values: 5},
-  {control_type:6, distinct_values: 6},
-  {control_type:7, distinct_values: 7},
-  {control_type:8, distinct_values: 8},
-  {control_type:9, distinct_values: 9},
-  {control_type:10, distinct_values: 10},
+  {control_type:'1', distinct_values: 1},
+  {control_type:'2', distinct_values: 2},
+  {control_type:'3', distinct_values: 3},
+  {control_type:'4', distinct_values: 4},
+  {control_type:'5', distinct_values: 5},
+  {control_type:'6', distinct_values: 6},
+  {control_type:'7', distinct_values: 7},
+  {control_type:'8', distinct_values: 8},
+  {control_type:'9', distinct_values: 9},
+  {control_type:'10', distinct_values: 10},
   ];
   filteredOptions: Observable<string[]>;
   displayedColumns: string[] = ['control_type', 'distinct_values'];
