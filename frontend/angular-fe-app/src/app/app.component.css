@@ -10,9 +10,14 @@
   width: 100%;
 }
 
-table {
+.example-container {
   margin-left: 20px;
+  height: 400px;
   width: 40%;
+  overflow: auto;
+}
+table {
+  width: 100%;
 }
 
 th.mat-sort-header-sorted {

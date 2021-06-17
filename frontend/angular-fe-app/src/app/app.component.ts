@@ -7,6 +7,7 @@ import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
 import {MatAutocompleteTrigger} from '@angular/material/autocomplete';
+import {MatPaginator} from '@angular/material/paginator';
 
 
 export interface PeriodicElement {
