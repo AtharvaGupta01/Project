@@ -87,7 +87,7 @@ def application_name_table(application_name_selection): # take app id input then
     rel_dir = '../Schneider//'
 
 
-    
+
     for app_id in app_id_event_count_dict:
         app_id_title_docs = events_collection.find({"application_id": app_id}, projection={'title':1, 'specifications.event_path':1})
 
@@ -97,20 +97,20 @@ def application_name_table(application_name_selection): # take app id input then
             title_set.add(x['title'])
             event_path_set.add(x['specifications']['event_path'])
 
-        f = open("C:\\Users\\cnaag\\Desktop\\Project\\Schneider\\"+app_id_app_name_dict[app_id].replace(":","_").replace("-","_")+"_title.txt",'w', encoding="utf-8")
+        f = open("..\\Schneider\\"+app_id_app_name_dict[app_id].replace(":","_").replace("-","_")+"_title.txt",'w', encoding="utf-8")
         for title in title_set:
             f.write(title)
             f.write("\n")
         f.close()
         
-        f = open("C:\\Users\\cnaag\\Desktop\\Project\\Schneider\\"+app_id_app_name_dict[app_id].replace(":","_").replace("-","_")+"_event_path.txt",'w', encoding="utf-8")
+        f = open("..\\Schneider\\"+app_id_app_name_dict[app_id].replace(":","_").replace("-","_")+"_event_path.txt",'w', encoding="utf-8")
         for event_path in event_path_set:
             f.write(event_path)
             f.write("\n")
         f.close()
 
 
-    input_dir = "C:\\Users\\cnaag\\Desktop\\Project\\Schneider\\"
+    input_dir = "..\\Schneider\\"
     application_name = application_name_selection.replace("-","_")  
     
 
