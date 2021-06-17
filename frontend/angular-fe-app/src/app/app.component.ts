@@ -27,29 +27,34 @@ export interface PeriodicElement {
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit,AfterViewInit {
-  //my_values = Object.values({a:1,b:2,c:3})
+  //dropdown1
   myControl = new FormControl();
   options = []
-  ELEMENT_DATA: PeriodicElement[] = [
-  {control_type:'1', distinct_values: 1},
-  {control_type:'2', distinct_values: 2},
-  {control_type:'3', distinct_values: 3},
-  {control_type:'4', distinct_values: 4},
-  {control_type:'5', distinct_values: 5},
-  {control_type:'6', distinct_values: 6},
-  {control_type:'7', distinct_values: 7},
-  {control_type:'8', distinct_values: 8},
-  {control_type:'9', distinct_values: 9},
-  {control_type:'10', distinct_values: 10},
-  ];
   filteredOptions: Observable<string[]>;
+  //table1
+  ELEMENT_DATA: PeriodicElement[] = [];
   displayedColumns: string[] = ['control_type', 'distinct_values'];
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
   isLoadingResults = false;
+  //dropdown2
+  myControl2 = new FormControl();
+  options2 = []
+  filteredOptions2: Observable<string[]>;
+  //dropdown3
+  myControl3 = new FormControl();
+  options3 = ['Control Name','Automation Id']
+  filteredOptions3: Observable<string[]>;
+  selected = 'option1';
+  //table2
+  ELEMENT_DATA2: PeriodicElement[] = [];
+  displayedColumns2: string[] = ['control_name', 'events'];
+  dataSource2 = new MatTableDataSource(this.ELEMENT_DATA2);
+  isLoadingResults2 = false;
 
-
+  //table1
   @ViewChild(MatSort) sort: MatSort;
 
+  //dropdown1
   async fetchData(){
     var url = 'http://localhost:5000/'
     var response = await fetch(url)
@@ -57,6 +62,7 @@ export class AppComponent implements OnInit,AfterViewInit {
     this.options = Object.values(response)
   }
 
+  //table1
   async getAppNameDropdown(event ,id){
     this.isLoadingResults = true;
     var url = `http://localhost:5000/${id}`
@@ -65,9 +71,39 @@ export class AppComponent implements OnInit,AfterViewInit {
     console.log(response)
     this.ELEMENT_DATA = response['data']
     this.dataSource = new MatTableDataSource(this.ELEMENT_DATA)
+    // call dropdown2 and send this.ELEMENT_DATA
     this.ngAfterViewInit()
   }
 
+  //dropdown2
+  async fetchData2(){
+    var url = 'http://localhost:5000/'
+    var response = await fetch(url)
+    response = await response.json()
+    this.options2 = Object.values(response)
+  }
+
+  //dropdown3
+  async fetchData3(){
+    var url = 'http://localhost:5000/'
+    var response = await fetch(url)
+    response = await response.json()
+    this.options3 = Object.values(response)
+  }
+
+  //table2
+  async getControlTypeDropdown(event ,id){
+    this.isLoadingResults2 = true;
+    var url = `http://localhost:5000/${id}`
+    var response = await fetch(url)
+    response = await response.json()
+    console.log(response)
+    this.ELEMENT_DATA2 = response['data']
+    this.dataSource2 = new MatTableDataSource(this.ELEMENT_DATA)
+    this.ngAfterViewInit()
+  }
+
+  //dropdown1
   ngOnInit() {
     this.fetchData()
     this.filteredOptions = this.myControl.valueChanges
@@ -78,10 +114,13 @@ export class AppComponent implements OnInit,AfterViewInit {
 
   }
 
+
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
     this.isLoadingResults = false;
   }
+
+
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();

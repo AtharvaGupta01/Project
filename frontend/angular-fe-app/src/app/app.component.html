@@ -51,9 +51,9 @@
 <br/>
 <br/>
 
-<form class="example-form2">
-  <mat-form-field class="example-full-width2">
-    <mat-label>Application Name</mat-label>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Control Type</mat-label>
     <input type="text"
            placeholder="Start typing..."
            aria-label="Number"
@@ -67,3 +67,42 @@
     </mat-autocomplete>
   </mat-form-field>
 </form>
+
+
+<mat-form-field appearance="fill">
+  <mat-label>Data type</mat-label>
+  <mat-select [(value)]="selected">
+    <mat-option value="option1">Control Name</mat-option>
+    <mat-option value="option2">Automation ID</mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<br/>
+<br/>
+
+<div class="example-container mat-elevation-z8">
+
+  <div class="example-loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+
+  <div class="example-table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortActive="created" matSortDisableClear matSortDirection="desc">
+
+      <ng-container matColumnDef="control_type">
+        <th mat-header-cell *matHeaderCellDef> Control Name </th>
+        <td mat-cell *matCellDef="let element" > {{element.control_type}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="distinct_values">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear> Events # </th>
+        <td mat-cell *matCellDef="let element"> {{element.distinct_values}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+</div>
