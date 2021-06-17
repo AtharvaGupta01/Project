@@ -59,6 +59,7 @@ export class AppComponent implements OnInit,AfterViewInit {
     console.log(response)
     this.ELEMENT_DATA = response['data']
     this.dataSource = new MatTableDataSource(this.ELEMENT_DATA)
+    this.ngAfterViewInit()
   }
 
   ngOnInit() {
