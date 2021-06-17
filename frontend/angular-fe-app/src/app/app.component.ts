@@ -9,10 +9,10 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatAutocompleteTrigger} from '@angular/material/autocomplete';
 
 
-// export interface PeriodicElement {
-//   control_type: string;
-//   distinct_values: number;
-// }
+export interface PeriodicElement {
+  control_type: number;
+  distinct_values: number;
+}
 
 
 
@@ -24,12 +24,11 @@ import {MatAutocompleteTrigger} from '@angular/material/autocomplete';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit,AfterViewInit {
   my_values = Object.values({a:1,b:2,c:3})
   myControl = new FormControl();
-  // options = ['One', 'Two', 'Three'];
   options = []
-  ELEMENT_DATA = [
+  ELEMENT_DATA: PeriodicElement[] = [
   {control_type:12345, distinct_values: 1},
   {control_type:12345, distinct_values: 2},
   {control_type:12345, distinct_values: 3},
