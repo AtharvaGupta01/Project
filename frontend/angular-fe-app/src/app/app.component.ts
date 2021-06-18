@@ -82,6 +82,7 @@ export class AppComponent implements OnInit,AfterViewInit {
     this.options2 = Object.keys(dict)
     console.log(this.options2)
 
+    this.temp_func()
     this.ngAfterViewInit()
   }
 
@@ -126,13 +127,17 @@ export class AppComponent implements OnInit,AfterViewInit {
     this.dataSource.sort = this.sort;
     this.isLoadingResults = false;
     //dropdown2
+
+
+  }
+
+  temp_func(){
     this.filteredOptions2 = this.myControl2.valueChanges
     .pipe(
       startWith(''),
       map(value2 => this._filter2(value2))
     );
   }
-
 
 
   private _filter(value: string): string[] {
