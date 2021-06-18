@@ -27,6 +27,25 @@
   width: 40%;
   overflow: auto;
 }
+
+.example-loading-shade2 {
+  height: 392px;
+  width: 40%;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-container2 {
+  margin-left: 20px;
+  height: 392px;
+  width: 40%;
+  overflow: auto;
+}
+
 table {
   width: 100%;
 }

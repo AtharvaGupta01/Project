@@ -60,7 +60,7 @@ export class AppComponent implements OnInit,AfterViewInit {
     var response = await fetch(url)
     response = await response.json()
     this.options = Object.values(response)
-    console.log(this.options)
+    //console.log(this.options)
   }
 
   //table1
@@ -83,6 +83,8 @@ export class AppComponent implements OnInit,AfterViewInit {
     console.log(this.options2)
 
     this.temp_func()
+    console.log(this.filteredOptions2)
+    //table1
     this.ngAfterViewInit()
   }
 
@@ -127,8 +129,6 @@ export class AppComponent implements OnInit,AfterViewInit {
     this.dataSource.sort = this.sort;
     this.isLoadingResults = false;
     //dropdown2
-
-
 
   }
 

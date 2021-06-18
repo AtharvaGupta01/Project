@@ -32,7 +32,7 @@
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortActive="created" matSortDisableClear matSortDirection="desc">
 
       <ng-container matColumnDef="control_type">
-        <th mat-header-cell *matHeaderCellDef> Control Type </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Control Type </th>
         <td mat-cell *matCellDef="let element" > {{element.control_type}} </td>
       </ng-container>
 
@@ -60,10 +60,10 @@
            aria-label="Number"
            matInput
            [formControl]="myControl2"
-           [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let option2 of filteredOptions2 | async" [value]="option2" (onSelectionChange)= "getControlTypeDropdown($event, option2)">
-        {{option2}}
+           [matAutocomplete]="autoTest">
+    <mat-autocomplete #autoTest ="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions2 | async" [value]="option" (onSelectionChange)= "getControlTypeDropdown($event, option)">
+        {{option}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
@@ -82,9 +82,9 @@
 <br/>
 <br/>
 
-<div class="example-container mat-elevation-z8">
+<div class="example-container2 mat-elevation-z8">
 
-  <div class="example-loading-shade" *ngIf="isLoadingResults">
+  <div class="example-loading-shade2" *ngIf="isLoadingResults">
     <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
   </div>
 
