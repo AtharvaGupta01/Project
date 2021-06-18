@@ -60,6 +60,7 @@ export class AppComponent implements OnInit,AfterViewInit {
     var response = await fetch(url)
     response = await response.json()
     this.options = Object.values(response)
+    console.log(this.options)
   }
 
   //table1
@@ -71,17 +72,23 @@ export class AppComponent implements OnInit,AfterViewInit {
     console.log(response)
     this.ELEMENT_DATA = response['data']
     this.dataSource = new MatTableDataSource(this.ELEMENT_DATA)
-    // call dropdown2 and send this.ELEMENT_DATA
+
+    //dropdown2
+    var my_options2 = this.ELEMENT_DATA
+    var dict = {}
+    for (var index in my_options2) {
+      dict[my_options2[index]['control_type']]= my_options2[index]['distinct_values']
+    }
+    this.options2 = Object.keys(dict)
+    console.log(this.options2)
+
     this.ngAfterViewInit()
   }
 
   //dropdown2
-  async fetchData2(){
-    var url = 'http://localhost:5000/'
-    var response = await fetch(url)
-    response = await response.json()
-    this.options2 = Object.values(response)
-  }
+  // async fetchData2(){
+
+  // }
 
   //dropdown3
   async fetchData3(){
@@ -111,13 +118,19 @@ export class AppComponent implements OnInit,AfterViewInit {
         startWith(''),
         map(value => this._filter(value))
       );
-
   }
 
 
   ngAfterViewInit() {
+    //table1
     this.dataSource.sort = this.sort;
     this.isLoadingResults = false;
+    //dropdown2
+    this.filteredOptions2 = this.myControl2.valueChanges
+    .pipe(
+      startWith(''),
+      map(value2 => this._filter2(value2))
+    );
   }
 
 
@@ -126,6 +139,12 @@ export class AppComponent implements OnInit,AfterViewInit {
     const filterValue = value.toLowerCase();
 
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+  private _filter2(value2: string): string[] {
+    const filterValue2 = value2.toLowerCase();
+
+    return this.options2.filter(option2 => option2.toLowerCase().includes(filterValue2));
   }
 }
 
