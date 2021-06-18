@@ -129,6 +129,7 @@ export class AppComponent implements OnInit,AfterViewInit {
     //dropdown2
 
 
+
   }
 
   temp_func(){
