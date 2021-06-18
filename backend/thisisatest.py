@@ -183,7 +183,7 @@ def application_name_table(application_name_selection): # take app id input then
 def control_name_table(id,control_type_selected):
     global control_type_control_name_set_dict
     my_control_name_list = []
-    for control_name in sorted(control_type_control_name_set_dict[control_type_selected]):
+    for control_name in sorted(control_type_control_name_set_dict[int(control_type_selected)]):
         my_control_name_list.append(control_name)
     return my_control_name_list
 
@@ -192,7 +192,7 @@ def automation_id_table(id,control_type_selected):
     global automation_id_count_dict
     global control_type_automation_id_count_dict
     automation_id_list = []
-    automation_id_count_dict = control_type_automation_id_count_dict[control_type_selected]
+    automation_id_count_dict = control_type_automation_id_count_dict[int(control_type_selected)]
     for automation_id in automation_id_count_dict:
         automation_id_list.append({'automation_id':automation_id, 'events':automation_id_count_dict[automation_id]})
     return automation_id_list
