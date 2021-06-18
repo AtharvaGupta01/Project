@@ -50,6 +50,8 @@ export class AppComponent implements OnInit,AfterViewInit {
   displayedColumns2: string[] = ['control_name', 'events'];
   dataSource2 = new MatTableDataSource(this.ELEMENT_DATA2);
   isLoadingResults2 = false;
+  table2Id= ""
+  appNameId = ""
 
   //table1
   @ViewChild(MatSort) sort: MatSort;
@@ -66,6 +68,7 @@ export class AppComponent implements OnInit,AfterViewInit {
   //table1
   async getAppNameDropdown(event ,id){
     this.isLoadingResults = true;
+    this.table2Id = id
     var url = `http://localhost:5000/${id}`
     var response = await fetch(url)
     response = await response.json()
@@ -88,28 +91,30 @@ export class AppComponent implements OnInit,AfterViewInit {
     this.ngAfterViewInit()
   }
 
-  //dropdown2
-  // async fetchData2(){
-
-  // }
 
   //dropdown3
   async fetchData3(){
-    var url = 'http://localhost:5000/'
-    var response = await fetch(url)
-    response = await response.json()
-    this.options3 = Object.values(response)
+
   }
 
   //table2
   async getControlTypeDropdown(event ,id){
     this.isLoadingResults2 = true;
-    var url = `http://localhost:5000/${id}`
+    this.appNameId = this.table2Id
+    // add number at end of link (1/2)
+    if (this.selected === 'option1'){
+      var url = `http://localhost:5000/${this.appNameId}/${id}/1`
+    }
+    else {
+      var url = `http://localhost:5000/${this.appNameId}/${id}/2`
+    }
+
     var response = await fetch(url)
     response = await response.json()
     console.log(response)
     this.ELEMENT_DATA2 = response['data']
     this.dataSource2 = new MatTableDataSource(this.ELEMENT_DATA)
+    console.log(this.dataSource2)
     this.ngAfterViewInit()
   }
 
@@ -154,33 +159,3 @@ export class AppComponent implements OnInit,AfterViewInit {
   }
 }
 
-
-
-
-
-
-
-
-//  import { Component, OnInit } from '@angular/core';
-
-//  @Component({
-//    selector: 'app-root',
-//    templateUrl: './app.component.html',
-//    styleUrls: ['./app.component.css']
-//  })
-//  export class AppComponent implements OnInit {
-//    // title = 'First Attempt';
-//    keys = Object.values({a:1,b:2,c:3})
-//    async fetchData(){
-//      var url = 'http://localhost:5000/'
-//      // var url = 'https://api.chucknorris.io/jokes/random'
-//      var response = await fetch(url)
-//      response = await response.json()
-//      console.log(typeof(response), response)
-//      this.keys = Object.values(response)
-//    }
-
-//    ngOnInit(){
-//      this.fetchData()
-//    }
-// }

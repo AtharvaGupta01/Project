@@ -180,16 +180,15 @@ def application_name_table(application_name_selection): # take app id input then
 #     dropdown_options = ['Control Name', 'Automation ID']
 #     return dropdown_options
 
-def control_name_table(control_type_selected):
+def control_name_table(id,control_type_selected):
     global control_type_control_name_set_dict
     my_control_name_list = []
     for control_name in sorted(control_type_control_name_set_dict[control_type_selected]):
-        #if "Realize Your Potential" in control_name:
-            my_control_name_list.append(control_name)
+        my_control_name_list.append(control_name)
     return my_control_name_list
 
 
-def automation_id_table(control_type_selected):
+def automation_id_table(id,control_type_selected):
     global automation_id_count_dict
     global control_type_automation_id_count_dict
     automation_id_list = []

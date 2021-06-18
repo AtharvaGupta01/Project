@@ -52,6 +52,7 @@
 <br/>
 
 <!-- Second DD-->
+
 <form class="example-form2">
   <mat-form-field class="example-full-width2">
     <mat-label>Control Type</mat-label>
@@ -70,7 +71,7 @@
 </form>
 
 
-<mat-form-field appearance="fill">
+<mat-form-field appearance="fill" disableOptionCentering panelClass="myPanelClass">
   <mat-label>Data type</mat-label>
   <mat-select [(value)]="selected">
     <mat-option value="option1">Control Name</mat-option>
@@ -78,18 +79,17 @@
   </mat-select>
 </mat-form-field>
 
-
 <br/>
 <br/>
 
 <div class="example-container2 mat-elevation-z8">
 
-  <div class="example-loading-shade2" *ngIf="isLoadingResults">
-    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  <div class="example-loading-shade2" *ngIf="isLoadingResults2">
+    <mat-spinner *ngIf="isLoadingResults2"></mat-spinner>
   </div>
 
-  <div class="example-table-container">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortActive="created" matSortDisableClear matSortDirection="desc">
+  <div class="example-table-container2">
+    <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8" matSort matSortActive="created" matSortDisableClear matSortDirection="desc">
 
       <ng-container matColumnDef="control_type">
         <th mat-header-cell *matHeaderCellDef> Control Name </th>

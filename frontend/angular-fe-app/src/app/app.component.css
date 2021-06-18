@@ -5,6 +5,9 @@
   width: 100%;
 }
 
+.myPanelClass{
+  margin-left: 20px !important;
+}
 .example-full-width {
   margin-left: 10px;
   width: 100%;
