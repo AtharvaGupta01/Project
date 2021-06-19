@@ -1,16 +1,16 @@
-
-Access - AI Journals DB - #6369568f26e218856b8af13f45017c0c79ae212d31e4c9db41af71ce1f022a22# : Database- C:\Users\csanchez\Desktop\AI Journals DB - #6369568f26e218856b8af13f45017c0c79ae212d31e4c9db41af71ce1f022a22#.accdb (Access 2007 - 2016 file format)
 Access - AI Journals DB - Updated Distribute Copy (#12ed730fe027a6f48b89034ceb79b1078723fecccda79ab2907b043df2ef38f7# #76d410baeabc1399b28c8d0da206ef9cfa5aa792ad787fc2e27ba4736bdad4fd# : Database- C:\Users\cmichel\Box\AI Journals DB\Processing Team Databases\Cash Ma
-Access - AI Journals DB - #f55ec433580f93b2773258c1c02bd64938a37faf732b1023dea0b53202477719# : Database- C:\Users\lynnr\Desktop\AI Journals DB - #f55ec433580f93b2773258c1c02bd64938a37faf732b1023dea0b53202477719#.accdb (Access #858e4b387360bed54c63c6d2602220c5e74289a0958945e763cb2242d034305b# - #8c046747913b0ff34d52c4af098d0406e43bb6e82053973533ccd37a89f84e26# file format)
-Do #2a9630fd427a64fd7e767702b69799b31526ab6f8f50d6f78967ddab8557ec8f# proceed #03ed02a4ca8d59e32e36bd6b0177b0acdfe2f29a7c7a77f9bd47f0a0e02b1904# BETA movements.
+
+Access
+Microsoft Access
+Enter BETA WHO Code
 Access - AI Journals DB - Updated Distribute Copy (#12ed730fe027a6f48b89034ceb79b1078723fecccda79ab2907b043df2ef38f7# 2) : Database- C:\Users\cmichel\Box\AI Journals DB\Processing Team Databases\Cash Ma
 Access - AI Journals DB - Updated Distribute Copy (#6b33c0fcff6ad61cca27cc30b8938f5a75955706230b00363f6a877854b1979f# 2) : Database- C:\Users\cmichel\Box\AI Journals DB\Processing Team Databases\Cash Ma
 Access - AI Journals DB - #3a5ecca188c0579c00ee24cf3cab21bd02c15a06f7a70cc8e0a8ff2381dcbbfd# Distribute Copy (#6b33c0fcff6ad61cca27cc30b8938f5a75955706230b00363f6a877854b1979f# 2) : Database- C:\Users\cmichel\Box\AI Journals DB\Processing Team Databases\Cash Ma
-Access - AI Journals DB - #f55ec433580f93b2773258c1c02bd64938a37faf732b1023dea0b53202477719# : Database- C:\Users\lynnr\Box\AI Journals DB\Processing Team Databases\Cash Management\#f55ec433580f93b2773258c1c02bd64938a37faf732b1023dea0b53202477719# Ruiz\AI Journals DB - #f55ec433580f93b2773258c1c02bd64938a37faf732b1023dea0b53202477719#.accdb (A
-Access - AI Journals DB - #eca236cdc6725922a22d3042982298346e5e11bde856b79aa91231847789e825# : Database- C:\Users\lynnr\Desktop\AI Journals DB - #eca236cdc6725922a22d3042982298346e5e11bde856b79aa91231847789e825#.accdb (Access 2007 - 2016 file format)
-Journal Records Form
-Microsoft Access
-Access - AI Journals DB - #17e16fa9f8eda4dfbdf17adccd79cc27aeb006c0c5ab60ac8838f82c9ab808e2# Hicks-Davidson : Database- C:\Users\khicksda\Box\AI Journals DB\Processing Team Databases\Cash Management\#17e16fa9f8eda4dfbdf17adccd79cc27aeb006c0c5ab60ac8838f82c9ab808e2# Hicks-David
-Enter BETA WHO Code
 Do #254bb97b57f12e1608fefc4517de768427b2fd6d2cffbbfcbc09f3c818198d5f# proceed #0695b563acde461fc2f8d9aebccf35c7596ac458b8d8e067c602fb7b4e5f1578# BETA movements.
-Access
+Access - AI Journals DB - #eca236cdc6725922a22d3042982298346e5e11bde856b79aa91231847789e825# : Database- C:\Users\lynnr\Desktop\AI Journals DB - #eca236cdc6725922a22d3042982298346e5e11bde856b79aa91231847789e825#.accdb (Access 2007 - 2016 file format)
+Access - AI Journals DB - #17e16fa9f8eda4dfbdf17adccd79cc27aeb006c0c5ab60ac8838f82c9ab808e2# Hicks-Davidson : Database- C:\Users\khicksda\Box\AI Journals DB\Processing Team Databases\Cash Management\#17e16fa9f8eda4dfbdf17adccd79cc27aeb006c0c5ab60ac8838f82c9ab808e2# Hicks-David
+Access - AI Journals DB - #6369568f26e218856b8af13f45017c0c79ae212d31e4c9db41af71ce1f022a22# : Database- C:\Users\csanchez\Desktop\AI Journals DB - #6369568f26e218856b8af13f45017c0c79ae212d31e4c9db41af71ce1f022a22#.accdb (Access 2007 - 2016 file format)
+Access - AI Journals DB - #f55ec433580f93b2773258c1c02bd64938a37faf732b1023dea0b53202477719# : Database- C:\Users\lynnr\Box\AI Journals DB\Processing Team Databases\Cash Management\#f55ec433580f93b2773258c1c02bd64938a37faf732b1023dea0b53202477719# Ruiz\AI Journals DB - #f55ec433580f93b2773258c1c02bd64938a37faf732b1023dea0b53202477719#.accdb (A
+Access - AI Journals DB - #f55ec433580f93b2773258c1c02bd64938a37faf732b1023dea0b53202477719# : Database- C:\Users\lynnr\Desktop\AI Journals DB - #f55ec433580f93b2773258c1c02bd64938a37faf732b1023dea0b53202477719#.accdb (Access #858e4b387360bed54c63c6d2602220c5e74289a0958945e763cb2242d034305b# - #8c046747913b0ff34d52c4af098d0406e43bb6e82053973533ccd37a89f84e26# file format)
+Journal Records Form
+Do #2a9630fd427a64fd7e767702b69799b31526ab6f8f50d6f78967ddab8557ec8f# proceed #03ed02a4ca8d59e32e36bd6b0177b0acdfe2f29a7c7a77f9bd47f0a0e02b1904# BETA movements.

@@ -184,7 +184,7 @@ def control_name_table(id,control_type_selected):
     global control_type_control_name_set_dict
     my_control_name_list = []
     for control_name in sorted(control_type_control_name_set_dict[int(control_type_selected)]):
-        my_control_name_list.append(control_name)
+        my_control_name_list.append({'control_name':control_name, 'events': 1})
     return my_control_name_list
 
 
