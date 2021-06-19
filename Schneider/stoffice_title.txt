@@ -1,18 +1,18 @@
 
-Save Session
-Open
-New Session
 SmarTerm - [Macro ended]
-SmarTerm - [Beta]
-Save #df0fe79898ef413ea686b3c25368cff678815b14862c796aa366ca40bdb547c7# Output As
-Print
-Confirm Save As
-SmarTerm Buttons
-#5be9aab1fecb80873dc25fc18f767ca9dfa03ec7133ffbb4747c1435c3b97bd9# Licensing Management
-#f5473daf3d65a4658947a8f5198212544942bbd0ed266e5039267878b16d0939# Licensing Management
 SmarTerm
-IBM 3270 Emulation Properties
-#df0fe79898ef413ea686b3c25368cff678815b14862c796aa366ca40bdb547c7#
-SmarTerm Virtual Keyboard
-Customize
 Save Print Output As
+SmarTerm - [Beta]
+Confirm Save As
+#5be9aab1fecb80873dc25fc18f767ca9dfa03ec7133ffbb4747c1435c3b97bd9# Licensing Management
+#df0fe79898ef413ea686b3c25368cff678815b14862c796aa366ca40bdb547c7#
+IBM 3270 Emulation Properties
+#f5473daf3d65a4658947a8f5198212544942bbd0ed266e5039267878b16d0939# Licensing Management
+Print
+SmarTerm Virtual Keyboard
+New Session
+Save #df0fe79898ef413ea686b3c25368cff678815b14862c796aa366ca40bdb547c7# Output As
+Save Session
+SmarTerm Buttons
+Customize
+Open

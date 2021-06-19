@@ -93,12 +93,12 @@
 
       <ng-container matColumnDef="control_type">
         <th mat-header-cell *matHeaderCellDef> Control Name </th>
-        <td mat-cell *matCellDef="let element" > {{element.control_type}} </td>
+        <td mat-cell *matCellDef="let element" > {{element.control_name}} </td>
       </ng-container>
 
       <ng-container matColumnDef="distinct_values">
         <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear> Events # </th>
-        <td mat-cell *matCellDef="let element"> {{element.distinct_values}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.events}} </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
@@ -107,3 +107,6 @@
   </div>
 
 </div>
+
+<br/>
+<br/>

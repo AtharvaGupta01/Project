@@ -24,22 +24,22 @@ class Get_table_data(Resource):
         return(a)
         
 class Get_second_table_data1(Resource):
-     def get(self, id, ct):
-        control_type_table_list = control_name_table(id,ct) 
+     def get(self, id, control_type_selected):
+        control_type_table_list = control_name_table(id,control_type_selected) 
         a ={'data':control_type_table_list}
         return(a)
 
 class Get_second_table_data2(Resource):
-     def get(self, id, ct):
-        control_type_table_list = automation_id_table(id,ct)
+     def get(self, id, control_type_selected):
+        control_type_table_list = automation_id_table(id,control_type_selected)
         b = {'data': control_type_table_list}
         return (b)
 
 
 api.add_resource(Get_Id, '/')
 api.add_resource(Get_table_data, '/<string:id>')
-api.add_resource(Get_second_table_data1, '/<string:id>/<string:ct>/1', endpoint="1") # ct is number
-api.add_resource(Get_second_table_data2, '/<string:id>/<string:ct>/2', endpoint="2")
+api.add_resource(Get_second_table_data1, '/<string:id>/<string:control_type_selected>/1', endpoint="1") # ct is number
+api.add_resource(Get_second_table_data2, '/<string:id>/<string:control_type_selected>/2', endpoint="2")
 # api.add_resource(Control_type_table, '/ctt')
 # api.add_resource(Get_control_type, '/gct')
 # api.add_resource(control_name_table, '/cnt')

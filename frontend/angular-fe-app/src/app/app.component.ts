@@ -56,6 +56,9 @@ export class AppComponent implements OnInit,AfterViewInit {
   //table1
   @ViewChild(MatSort) sort: MatSort;
 
+  //table2
+  @ViewChild(MatSort) sort2: MatSort;
+
   //dropdown1
   async fetchData(){
     var url = 'http://localhost:5000/'
@@ -113,7 +116,7 @@ export class AppComponent implements OnInit,AfterViewInit {
     response = await response.json()
     console.log(response)
     this.ELEMENT_DATA2 = response['data']
-    this.dataSource2 = new MatTableDataSource(this.ELEMENT_DATA)
+    this.dataSource2 = new MatTableDataSource(this.ELEMENT_DATA2)
     console.log(this.dataSource2)
     this.ngAfterViewInit()
   }
@@ -133,7 +136,9 @@ export class AppComponent implements OnInit,AfterViewInit {
     //table1
     this.dataSource.sort = this.sort;
     this.isLoadingResults = false;
-    //dropdown2
+    //table2
+    this.dataSource2.sort = this.sort2;
+    this.isLoadingResults2 = false;
 
   }
 
